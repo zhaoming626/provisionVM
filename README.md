@@ -7,4 +7,4 @@ Material preparied:
 3. Setup ss
 4. Setup symbolic link for apache2 served file
 5. Setup corn.d job to periodically back up amule downloaded files to azure storage
-
+6. Install frps as a service
