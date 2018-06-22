@@ -39,7 +39,8 @@ mv azure.list
 sudo apt-get update
 sudo apt-get install azcopy
 
-
+# set timezone as Asia/Shanghai
+timedatectl set-timezone Asia/Shanghai
 
 
 
