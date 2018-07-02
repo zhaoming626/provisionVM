@@ -36,7 +36,7 @@ sudo systemctl enable /etc/systemd/system/ssserver.service
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
 sudo apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
-sudomv azure.list
+sudo mv azure.list
 sudo apt-get update
 sudo apt-get install azcopy
 
