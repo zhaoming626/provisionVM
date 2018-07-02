@@ -1,0 +1,10 @@
+[Unit]
+Description=shadowsocks server
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks/ssserver.config
+
+[Install]
+WantedBy=multi-user.target

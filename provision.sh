@@ -28,7 +28,8 @@ ln -s /var/www/html/files ~/files
 # set up shadowsocks
 mkdir /etc/shadowsocks
 jq -n --arg password $sspassword (cat ./shadowsocks.config) > /etc/shadowsocks/shadowsocks.config
-mv ./shadowsocks.service /etc/shadowsocks/shadowsocks.service
+mv ./shadowsocks.service /etc/systemd/system/ssserver.service
+chmod 664 /etc/systemd/system/ssserver.service
 systemctl enable /etc/shadowsocks/shadowsocks.service
 
 # azcopy for weekly backup
