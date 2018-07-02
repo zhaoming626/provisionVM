@@ -30,7 +30,7 @@ sudo mkdir /etc/shadowsocks
 sudo jq -n --arg password $sspassword (cat ./shadowsocks.config) > /etc/shadowsocks/shadowsocks.config
 sudo mv ./shadowsocks.service /etc/systemd/system/ssserver.service
 sudo chmod 664 /etc/systemd/system/ssserver.service
-sudo systemctl enable /etc/shadowsocks/shadowsocks.service
+sudo systemctl enable /etc/systemd/system/ssserver.service
 
 # azcopy for weekly backup
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
