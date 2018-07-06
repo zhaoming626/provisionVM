@@ -3,6 +3,8 @@
 # install using software
 sudo apt-get update && upgrade
 sudo apt-get install -y aptitude git zsh amule-daemon amule-utils python-pip transmission crudini apache2 jq systemd
+sudo curl https://github.com/fatedier/frp/releases/download/v0.20.0/frp_0.20.0_linux_arm64.tar.gz
+sudo tar -xvzf frp_0.20.0_linux_arm64.tar.gz
 sudo pip install shadowsocks
 
 # append public key to authorized_keys

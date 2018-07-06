@@ -1,0 +1,13 @@
+[Unit]
+Description=shadowsocks server
+After=syslog.target network.target
+
+[Service]
+Type=simple
+ExecStart=/home/ubuntu/frp_0.20.0_linux_amd64/frps -c /home/ubuntu/frp_0.20.0_linux_amd64/frps.ini
+Restart=Always
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
