@@ -8,21 +8,24 @@ sudo tar -xvzf frp_0.20.0_linux_arm64.tar.gz
 sudo pip install shadowsocks
 
 # append public key to authorized_keys
-echo $macbookPro > ./.ssh/authorized_keys
-echo $officeSshPublicKey > ./.authorized_keys
+# echo $macbookPro > ./.ssh/authorized_keys
+# echo $officeSshPublicKey > ./.authorized_keys
 
 # set up on-my-zsh
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # set up amule-daemon and amulecmd
 sudo useradd amule
-sudo crudini --set /etc/default/amule-damon AMULED_USER amule
-sudo crudini --set /etc/default/amule-daemon AMULED_HOME /home/amule
+sudo mkdir -p /home/amule
+sudo crudini --set /etc/default/amule-daemon "" AMULED_USER "amule"
+sudo crudini --set /etc/default/amule-daemon "" AMULED_HOME "/home/amule"
 sudo service amule-daemon restart
 
+password = echo "password" | md5sum | cut -d ' ' -f 1
 sudo crudini --set /home/amule/.aMule/amule.conf ExternalConnect AcceptExternalConnections 1
-sudo crudini --set /home/amule/.aMule/amule.conf ECPassword "$amulepassword"
-sudo amulecmd --create-config-from /home/amule/.aMule/amule.conf
+sudo crudini --set /home/amule/.aMule/amule.conf ExternalConnect ECPassword $password
+sudo amulecmd --create-config-from=/home/amule/.aMule/amule.conf
+sudo service amule-daemon restart
 
 # set up symbolic link to serve files
 sudo ln -s /var/www/html/files ~/files
