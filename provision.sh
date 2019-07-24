@@ -31,6 +31,8 @@ sudo service amule-daemon restart
 sudo ln -s /var/www/html/files ~/files
 
 # set up shadowsocks
+# change 2.7 shadowsocks error
+# sed -i "s/libcrypto.EVP_CIPHER_CTX_cleanup/libcrypto.EVP_CIPHER_CTX_reset/g" /usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py
 sudo mkdir /etc/shadowsocks
 sudo jq -n --arg password $sspassword (cat ./shadowsocks.config) > /etc/shadowsocks/shadowsocks.config
 sudo mv ./shadowsocks.service /etc/systemd/system/ssserver.service
